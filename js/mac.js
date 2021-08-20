@@ -1,33 +1,17 @@
-function updateProduct(product) {
-     const memoryInput = document.getElementById(product + "-cost");
-     const memoryCost = memoryInput.innerText;
 
-
-     if (memoryCost == '0') {
-          memoryInput.innerText = 0;
-     }
-     else {
-          memoryInput.innerText = 180;
-     }
-
-}
 
 // memory add event handler
 document.getElementById("memory-eight").addEventListener('click', function () {
-     /* const memoryInput = document.getElementById("memory-cost");
+     const memoryInput = document.getElementById("memory-cost");
      const memoryCost = memoryInput.innerText;
-     memoryInput.innerText = 0; */
-
-     updateProduct();
+     memoryInput.innerText = 0;
 
 });
 
 document.getElementById("memory-sixteen").addEventListener('click', function () {
-     /* const memoryInput = document.getElementById("memory-cost");
+     const memoryInput = document.getElementById("memory-cost");
      const memoryCost = memoryInput.innerText;
-     memoryInput.innerText = 180; */
-
-     updateProduct('memory');
+     memoryInput.innerText = 180;
 
 });
 
