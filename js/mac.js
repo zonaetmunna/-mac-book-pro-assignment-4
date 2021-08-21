@@ -13,22 +13,15 @@ function getPrice(priceFieldNumber) {
 // set price
 function setButtonPrice(setPriceButtonId, setpriceFieldId) {
      const buttonPrice = getElement(setPriceButtonId);
-     const fieldprice = getElement(setpriceFieldId);
+     const fieldPrice = getElement(setpriceFieldId);
      buttonPrice.addEventListener('click', function () {
           const priceValue = buttonPrice.value;
-          fieldprice.innerText = priceValue;
+          fieldPrice.innerText = priceValue;
           totalPrice();
      });
 }
 
-// function call
-setButtonPrice('memory-eight', 'extra-memory-cost');
-setButtonPrice('memory-sixteen', 'extra-memory-cost');
-setButtonPrice('storage-first', 'extra-storage-cost');
-setButtonPrice('storage-seceond', 'extra-storage-cost');
-setButtonPrice('storage-third', 'extra-storage-cost');
-setButtonPrice('delivery-free', 'extra-delivery-cost');
-setButtonPrice('delivery-paid', 'extra-delivery-cost');
+
 
 // function for calculation
 function totalPrice() {
@@ -47,3 +40,12 @@ function totalPrice() {
 
      return semiTotalPrice;
 }
+
+// function call
+setButtonPrice('memory-eight', 'extra-memory-cost');
+setButtonPrice('memory-sixteen', 'extra-memory-cost');
+setButtonPrice('storage-first', 'extra-storage-cost');
+setButtonPrice('storage-seceond', 'extra-storage-cost');
+setButtonPrice('storage-third', 'extra-storage-cost');
+setButtonPrice('delivery-free', 'extra-delivery-cost');
+setButtonPrice('delivery-paid', 'extra-delivery-cost');
