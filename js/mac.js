@@ -1,49 +1,65 @@
 
+function updateProductPrice(product, price) {
+     const productInput = document.getElementById(product + "-cost");
+     let productCost = parseInt(productInput.innerText);
+     productInput.innerText = price;
+     // 
+     const totalCost = document.getElementById("total-cost");
+     const totalCostValue = parseInt(totalCost.innerText);
+     totalCost.innerText = 1299 + price;
+
+     // 
+
+}
+
+
+
+
 
 // memory add event handler
 document.getElementById("memory-eight").addEventListener('click', function () {
-     const memoryInput = document.getElementById("memory-cost");
-     const memoryCost = memoryInput.innerText;
-     memoryInput.innerText = 0;
+
+     updateProductPrice('memory', 0);
+     // 
+
+
 
 });
 
 document.getElementById("memory-sixteen").addEventListener('click', function () {
-     const memoryInput = document.getElementById("memory-cost");
-     const memoryCost = memoryInput.innerText;
-     memoryInput.innerText = 180;
+
+     updateProductPrice('memory', 180);
+     // 
 
 });
 
 // storage add event handler
 document.getElementById("storage-first").addEventListener('click', function () {
-     const storageInput = document.getElementById("storage-cost");
-     const memoryCost = storageInput.innerText;
-     storageInput.innerText = 0;
+     updateProductPrice('storage', 0);
+
+     // 
+
+
 });
 document.getElementById("storage-seceond").addEventListener('click', function () {
-     const storageInput = document.getElementById("storage-cost");
-     const memoryCost = storageInput.innerText;
-     storageInput.innerText = 100;
+     updateProductPrice('storage', 100);
+
+     // 
+
+
 });
 
 document.getElementById("storage-third").addEventListener('click', function () {
-     const storageInput = document.getElementById("storage-cost");
-     const memoryCost = storageInput.innerText;
-     storageInput.innerText = 180;
+     updateProductPrice('storage', 180);
 });
 
 // delivery cost event handler
 document.getElementById("delivery-free").addEventListener('click', function () {
-     const deliveryInput = document.getElementById("delivery-cost");
-     const deliveryCost = deliveryInput.innerText;
-     deliveryInput.innerText = 0;
+     updateProductPrice('delivery', 0);
 });
 
 document.getElementById("delivery-paid").addEventListener('click', function () {
-     const deliveryInput = document.getElementById("delivery-cost");
-     const deliveryCost = deliveryInput.innerText;
-     deliveryInput.innerText = 20;
+     updateProductPrice('delivery', 20);
 });
 
 
