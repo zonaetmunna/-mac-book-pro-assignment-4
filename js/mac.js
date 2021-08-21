@@ -1,80 +1,47 @@
 
-function updateProductPrice(product, price) {
-     const productInput = document.getElementById(product + "-cost");
-     productInput.innerText = price;
-
-     // 
-     const fixedPrice = document.getElementById("fixed-price");
-     fixedPrice.innerText = 1299;
-
-     const subTotal = parseInt(productInput.innerText) + parseInt(fixedPrice.innerText);
-     return subTotal;
-
-     // 
-
+function getElement(elementId) {
+     return document.getElementById(elementId);
 }
 
-// 
-function updateTotal() {
-     updateProductPrice();
-     const totalCost = document.getElementById("total-cost");
-     totalCost.innerText = 1299;
-
-     const total = parseInt(totalCost.innerText) + subTotal;
+function getPrice(priceFieldNumber) {
+     const fieldPrice = getElement(priceFieldNumber);
+     const price = parseFloat(fieldPrice.innerText);
+     return price;
 }
 
-// memory add event handler
-document.getElementById("memory-eight").addEventListener('click', function () {
-
-     updateProductPrice('memory', 0);
-     // 
-     updateTotal();
-
-});
-
-document.getElementById("memory-sixteen").addEventListener('click', function () {
-
-     updateProductPrice('memory', 180);
-     // 
-     updateTotal();
-
-});
-
-// storage add event handler
-document.getElementById("storage-first").addEventListener('click', function () {
-     updateProductPrice('storage', 0);
-
-     // 
-     updateTotal();
+// set price
+function setButtonPrice(setPriceButtonId, setpriceFieldId) {
+     const buttonPrice = getElement(setPriceButtonId);
+     const fieldprice = getElement(setpriceFieldId);
+     buttonPrice.addEventListener('click', function () {
+          const priceValue = buttonPrice.value;
+          fieldprice.innerText = priceValue;
+          totalPrice();
+     });
+}
 
 
-});
-document.getElementById("storage-seceond").addEventListener('click', function () {
-     updateProductPrice('storage', 100);
+function totalPrice() {
+     const fixedPrice = getPrice('fixed-price');
+     const memoryCost = getPrice('extra-memory-cost');
+     const storageCost = getPrice('extra-storage-cost');
+     const deliveryCost = getPrice('extra-delivery-cost');
 
-     // 
-     updateTotal();
+     const semiTotalPrice = fixedPrice + memoryCost + storageCost + deliveryCost;
 
+     const semiTotalPriceField = getElement('semi-total-price');
+     semiTotalPriceField.innerText = semiTotalPrice;
 
-});
+     const totalPrice = getElement('total-price');
+     totalPrice.innerText = semiTotalPrice;
 
-document.getElementById("storage-third").addEventListener('click', function () {
-     updateProductPrice('storage', 180);
-     // 
-     updateTotal();
-});
+     return semiTotalPrice;
+}
 
-// delivery cost event handler
-document.getElementById("delivery-free").addEventListener('click', function () {
-     updateProductPrice('delivery', 0);
-     // 
-     updateTotal();
-});
-
-document.getElementById("delivery-paid").addEventListener('click', function () {
-     updateProductPrice('delivery', 20);
-     // 
-     updateTotal();
-});
-
-
+setButtonPrice('memory-eight', 'extra-memory-cost');
+setButtonPrice('memory-sixteen', 'extra-memory-cost');
+setButtonPrice('storage-first', 'extra-storage-cost');
+setButtonPrice('storage-seceond', 'extra-storage-cost');
+setButtonPrice('storage-third', 'extra-storage-cost');
+setButtonPrice('delivery-free', 'extra-delivery-cost');
+setButtonPrice('delivery-paid', 'extra-delivery-cost');
