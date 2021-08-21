@@ -1,4 +1,5 @@
 
+
 function getElement(elementId) {
      return document.getElementById(elementId);
 }
@@ -21,6 +22,7 @@ function setButtonPrice(setPriceButtonId, setpriceFieldId) {
 }
 
 
+
 function totalPrice() {
      const fixedPrice = getPrice('fixed-price');
      const memoryCost = getPrice('extra-memory-cost');
@@ -37,7 +39,7 @@ function totalPrice() {
 
      return semiTotalPrice;
 }
-
+// function call
 setButtonPrice('memory-eight', 'extra-memory-cost');
 setButtonPrice('memory-sixteen', 'extra-memory-cost');
 setButtonPrice('storage-first', 'extra-storage-cost');
