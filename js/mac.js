@@ -21,8 +21,6 @@ function setButtonPrice(setPriceButtonId, setpriceFieldId) {
      });
 }
 
-
-
 // function for calculation
 function totalPrice() {
      const fixedPrice = getPrice('fixed-price');
